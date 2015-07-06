@@ -18,6 +18,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 public class PlistReaderDemoActivity extends ActionBarActivity {
 
+    private String TestUrl = "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/p180x540/423852_349248718440219_425270433_n.jpg?oh=85396a0804c26597082ea83ced808610&oe=565AECF8&__gda__=1444051623_481cc99e7d5a09350b5c31aada3abe17";
 
     ImageView imgView01;
     ImageView imgView02;
@@ -30,6 +31,7 @@ public class PlistReaderDemoActivity extends ActionBarActivity {
         setContentView(R.layout.activity_plist_reader_demo);
 
         imgView01 = (ImageView) findViewById(R.id.imageView01);
+        imgView02 = (ImageView) findViewById(R.id.imageview02);
         try {
             //pManager = new PlistManager(this, "objectsSpritesheet");
             //pReader = new PlistReader(this, "Untitled", "1280x800");
@@ -58,8 +60,7 @@ public class PlistReaderDemoActivity extends ActionBarActivity {
 
         imgView01.setImageBitmap(pReader.getNumberBitmap(523, 3));
 
-
-
+        new ImageLoader(imgView02).execute(TestUrl);
 
     }
 
