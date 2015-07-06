@@ -2,6 +2,7 @@ package com.ricky.plistreader;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -16,14 +17,17 @@ import java.text.ParseException;
 import javax.xml.parsers.ParserConfigurationException;
 
 
-public class PlistReaderDemoActivity extends ActionBarActivity {
+public class PlistReaderDemoActivity extends ActionBarActivity implements HomeKeyWatcher.OnHomePressedListener {
 
+    private final String TAG = PlistReaderDemoActivity.class.getSimpleName();
     private String TestUrl = "https://fbcdn-sphotos-a-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/p180x540/423852_349248718440219_425270433_n.jpg?oh=85396a0804c26597082ea83ced808610&oe=565AECF8&__gda__=1444051623_481cc99e7d5a09350b5c31aada3abe17";
 
     ImageView imgView01;
     ImageView imgView02;
 
     PlistReader pReader;
+
+    private HomeKeyWatcher mHomeWatcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +68,21 @@ public class PlistReaderDemoActivity extends ActionBarActivity {
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        mHomeWatcher = new HomeKeyWatcher(this);
+        mHomeWatcher.setOnHomePressedListener(this);
+        mHomeWatcher.startWatch();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mHomeWatcher.setOnHomePressedListener(null);
+        mHomeWatcher.stopWatch();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -85,5 +104,15 @@ public class PlistReaderDemoActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onHomePressed() {
+        Log.w(TAG, "click home button");
+    }
+
+    @Override
+    public void onHomeLongPressed() {
+        Log.w(TAG, "long click home button");
     }
 }
