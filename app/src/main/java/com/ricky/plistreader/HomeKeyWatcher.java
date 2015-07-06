@@ -59,10 +59,10 @@ public class HomeKeyWatcher {
                     Log.i(TAG, "action:" + action + ",reason:" + reason);  
                     if (mListener != null) {  
                         if (reason.equals(SYSTEM_DIALOG_REASON_HOME_KEY)) {  
-                            // 短按home键  
-                            mListener.onHomePressed();  
+                            //  short click home key
+                            mListener.onHomePressed();
                         } else if (reason.equals(SYSTEM_DIALOG_REASON_RECENT_APPS)) {  
-                            // 长按home键  
+                            // long click home key
                             mListener.onHomeLongPressed();  
                         }  
                     }  
