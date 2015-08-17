@@ -20,13 +20,13 @@ import java.io.InputStream;
 /**
  * Created by ricky on 2015/7/6.
  */
-public class ImageLoader extends AsyncTask<String, Integer, Bitmap> {
-    private final String TAG = ImageLoader.class.getSimpleName();
+public class ImageLoaders extends AsyncTask<String, Integer, Bitmap> {
+    private final String TAG = ImageLoaders.class.getSimpleName();
 
     String url = null;
     ImageView imgView;
 
-    public ImageLoader(ImageView imgView) {
+    public ImageLoaders(ImageView imgView) {
         this.imgView = imgView;
     }
 

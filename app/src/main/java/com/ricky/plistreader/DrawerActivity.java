@@ -23,7 +23,7 @@ public class DrawerActivity extends ActionBarActivity {
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private ListView listView_LeftMenu;
-    private String[] list_name = {"Plist Reader", "List Item 02", "List Item 03", "List Item 04"};
+    private String[] list_name = {"Plist Reader", "WaterFall Demo", "QR code Demo", "Volley Function"};
     private ArrayAdapter arrayAdapter;
     private ImageView ivRunningMan;
     private AnimationDrawable mAnimationDrawable;
@@ -82,10 +82,16 @@ public class DrawerActivity extends ActionBarActivity {
                     startActivity(intent);
                     break;
                 case 1:
+                    intent = new Intent(DrawerActivity.this, WaterFallActivity.class);
+                    startActivity(intent);
                     break;
                 case 2:
+                    intent = new Intent(DrawerActivity.this, QRscanActivity.class);
+                    startActivity(intent);
                     break;
                 case 3:
+                    intent = new Intent(DrawerActivity.this, VolleyTestActivity.class);
+                    startActivity(intent);
                     break;
 
             }

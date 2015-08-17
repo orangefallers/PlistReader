@@ -68,7 +68,7 @@ public class PlistReaderDemoActivity extends ActionBarActivity implements HomeKe
 
         imgView01.setImageBitmap(pReader.getNumberBitmap(523, 3));
 
-        new ImageLoader(imgView02).execute(TestUrl);
+        new ImageLoaders(imgView02).execute(TestUrl);
 
     }
 

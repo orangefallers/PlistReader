@@ -32,6 +32,24 @@
 
         </activity>
 
+
+        <activity
+            android:name=".VolleyTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".WaterFallActivity">
+
+        </activity>
+
+        <activity
+            android:name=".QRscanActivity">
+
+        </activity>
+
     </application>
 
 </manifest>
