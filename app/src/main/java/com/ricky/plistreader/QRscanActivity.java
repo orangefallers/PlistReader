@@ -2,6 +2,7 @@ package com.ricky.plistreader;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +49,13 @@ public class QRscanActivity extends Activity {
             String scanContent=scanningResult.getContents();
             String scanFormat=scanningResult.getFormatName();
             scanResultView.setText(scanContent+ "  " +scanFormat);
+
+            if (scanFormat.equals("QR_CODE")){
+                Uri uri = Uri.parse(scanContent);
+                Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(it);
+            }
+
         }else{
             Toast.makeText(getApplicationContext(), "nothing", Toast.LENGTH_SHORT).show();
         }
